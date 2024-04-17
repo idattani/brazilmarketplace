@@ -1,0 +1,37 @@
+<div class="background-img">
+    <app-language></app-language>
+    <div style="--animation-order: 0;" class="login-box staggered-fade">
+        <form>
+            <div class="title-container">
+                <h1 class="login-title">{{ 'user-forms.login' | translate }}</h1>
+            </div>
+            <div class="form-group">
+                <div class="label-container">
+                    <label class="form-label" for="email">{{ 'user-forms.email-label' | translate }}</label>
+                </div>
+                <div class="form-container">
+                    <input class="form-input" type="text" name="email" placeholder="{{ 'user-forms.email-placeholder' | translate }}" [(ngModel)]="email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label-container">
+                    <label class="form-label" for="password">{{ 'user-forms.password-label' | translate }}</label>
+                </div>
+                <div class="form-container">
+                    <input class="form-input" type="password" name="password" placeholder="{{ 'user-forms.password-placeholder' | translate }}" [(ngModel)]="password" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-container">
+                    <button class="form-button" type="submit" (click)="authService.signIn(email, password)">{{ 'user-forms.login' | translate }}</button>
+                </div>
+                <div>
+                    <p class="forgotten-password" routerLink="/forgottenpassword">{{ 'user-forms.forgot-password' | translate }}</p>
+                </div>
+                <div>
+                    <p class="sign-up">{{ 'user-forms.need-account' | translate }}? <span [routerLink]="getSignupForm()">{{ 'user-forms.sign-up' | translate }}!</span></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

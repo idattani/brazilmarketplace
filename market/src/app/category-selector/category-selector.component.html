@@ -1,0 +1,27 @@
+<div class="background">
+    <app-navigation-bar></app-navigation-bar>
+    <app-language></app-language>
+    <div class="text-container">
+        <h1>{{this.translate.instant(category_title)}} {{ 'categories.Categories' | translate }}</h1>
+    </div>
+    <hr>
+    <div class="text-container">
+        <h2>{{ this.translate.instant(returnPageDescription()) }}</h2>
+    </div>
+    <div class="text-container">
+        <p class="description">{{ 'categories.Click a category to see what services are available' | translate }}</p>
+    </div>
+    <hr>
+    <div class="tile-container" [@entrance]="returnCategoryList().length">
+        <span *ngFor="let category of returnCategoryList()" class="tile" [ngClass]="checkGridOffset(category)">
+            <div class="tile-overlay" [ngStyle]="{'background-color': getTileColor(category)}" [routerLink]="getNewRoute(category)">
+                <img [src]="findTileImage(category)">
+            </div>
+            <div class="tile-text-container">
+                <h2 class="tile-title" [routerLink]="getNewRoute(category)">{{this.translate.instant('categories.' + category)}}</h2>
+                <p class="tile-description">{{ returnTileDescription(category) }}</p>
+            </div>
+        </span>
+    </div>
+</div>
+

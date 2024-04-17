@@ -1,0 +1,45 @@
+* {
+    font-size: 20px;
+}
+
+.file-input {
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+.form-button {
+    margin-top: 1%;
+}
+
+.form-input[hidden] {
+    display: none;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('../../assets/chevron-down.svg') 98% / 10% no-repeat #EEE;
+    background-size: 10px 10px;
+    background-color: white;
+
+    height: 50px;
+
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: gray;
+
+    padding-right: 30px;
+}
+
+hr {
+    width: 80%;
+    margin-left: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+    select {
+        width: 300px;
+        font-size: 18px;
+    }
+}

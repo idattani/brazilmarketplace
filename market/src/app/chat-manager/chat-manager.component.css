@@ -1,0 +1,203 @@
+.chat-manager {
+    border-radius: 10px;
+    box-shadow: 0 0 2.1875rem 0 rgb(0 0 0 / 10%);
+
+    width: 90%;
+    
+    margin-top: 2%;
+
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+
+    height: 900px;
+}
+
+.selector-bar {
+    float: left;
+
+    height: 90%;
+    width: 12.5%;
+
+    margin-top: 2.5%;
+    margin-left: 4%;
+    margin-right: 3%;
+
+    background-color: gray;
+    border-radius: 10px;
+    box-shadow: 0 0 2.1875rem 0 rgb(0 0 0 / 10%);
+
+    overflow: scroll;
+}
+
+.chat-window {
+    height: 100%;
+    width: 55%;
+
+    margin-left: 40%;
+
+    padding-left: 5%;
+
+}
+
+.received-message {
+    border: 0.25px solid gray;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.75);
+
+    padding-left: 1%;
+
+    width: 90%;
+    height: 50%;
+
+    margin-top: 3%;
+
+    overflow: scroll;
+}
+
+.reply {
+    border: 0.25px solid gray;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.75);
+    padding-left: 1%;
+    padding-top: 1%;
+
+    width: 90%;
+    height: 30%;
+
+    resize: none;
+
+    font-size: 20px;
+}
+
+.reply:focus {
+    outline: none;
+}
+
+.reply-button {
+    margin-top: 2%
+}
+
+.tile {
+    border-radius: 10px;
+    background-color: white;
+
+    height: 25%;
+    width: 100%;
+
+    overflow: hidden;
+
+    transition: 0.3s;
+}
+
+.tile:hover {
+    cursor: pointer;
+    background-color: #2a7e8d;
+}
+
+.tile:hover * {
+    color: white;
+}
+
+img {
+    width: 60%;
+
+    aspect-ratio: 1 / 1;
+    margin-left: 20%
+}
+
+.tile-message {
+    text-overflow: ellipsis;
+}
+
+h2, h3, p {
+    color: #48483f;
+    word-break: keep-all;
+}
+
+.form-button {
+    font-size: 18px;
+    width: 15%;
+}
+
+.profile-name {
+    margin-left: 20%;
+}
+
+.loaded-message {
+    font-size: 20px;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+i {
+    margin-left: 15px;
+}
+
+@media only screen and (max-width: 1500px) {
+
+    .selector-bar {
+        width: 20%;
+
+        margin-right: 2%;
+        margin-left: 2%;
+    }
+
+    img {
+        width: 45%;
+        margin-left: 27.5%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    .chat-window {
+        clear: both;
+    }
+
+    .selector-bar {
+        float: left;
+    
+        height: 30%;
+        width: 48%;
+    
+        margin-top: 2.5%;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    .tile {
+        height: 48%;
+        width: 100%;
+    }
+
+    .tile  h3 {
+        display: none;
+    }
+
+    .chat-window {
+        height: 50%;
+        width: 100%;
+
+        margin-left: 0;
+        margin-top: 350px;
+
+        float: none;
+    }
+
+    .received-message {
+        height: 55%;
+    }
+
+    .reply-button {
+        width: 150px;
+    }
+
+    img {
+        width: 30%;
+        margin-left: 37.5%;
+    }
+}

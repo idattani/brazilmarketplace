@@ -1,0 +1,47 @@
+<div class="background">
+    <app-navigation-bar></app-navigation-bar>
+    <app-language></app-language>
+    <div>
+        <h1>{{ marketName }} {{ 'market.providers' | translate }}</h1>
+        <hr>
+    </div>
+    <div class="market-container">
+        <div style="--animation-order: 0;" class="filter-container staggered-fade">
+            <div class="form-container">
+                <h2 class="filter-title">{{ 'market.filter' | translate }}</h2>
+                <label for="location">{{ 'market.location' | translate }}</label>
+                <form class="filter-form">
+                    <button class="search-button" type="submit" (click)="locationFilter()"><span class="bi bi-search"></span></button>
+                    <input class="search-bar filter-bar" type="text" name="locationfilter" [(ngModel)]="locationQuery" placeholder="{{ 'market.location-placeholder' | translate }}" name="location">
+                </form>
+            </div>
+            <div class="form-container">
+                <label for="certification">{{ 'market.cert' | translate }}</label>
+                <form class="filter-form">
+                    <button class="search-button" type="submit" (click)="certFilter()"><span class="bi bi-search"></span></button>
+                    <input class="search-bar filter-bar" type="text" name="filtercert" [(ngModel)]="certQuery" placeholder="{{ 'market.cert-placeholder' | translate }}" name="certification">
+                </form>
+            </div>
+            <div>
+                <button class="form-button filter-button" (click)="clearFilters()">{{ 'market.clear-filters' | translate }}</button>
+            </div>
+        </div>
+        <div class="market-grid-box">
+                <form style="--animation-order: 0;" class="provider-search staggered-fade-right">
+                    <button class="search-button" type="submit" (click)="regexFilter()"><span class="bi bi-search"></span></button>
+                    <input class="search-bar" type="text" name="search" [(ngModel)]="regexQuery" placeholder="{{ 'market.filter-placeholder' | translate }}" name="providers">
+                </form>
+                <div class="grid-border" [@entrance]="suppliers.length">
+                    <div class="grid">
+                        <div *ngFor="let supplier of supplierListSwitch()" class="grid-item">
+                            <h2 class="grid-item-title" [routerLink]="getSupplierRoute(supplier.uid)">{{ supplier.company_name }}</h2>
+                            <img [src]="getUrl(supplier.image_file)" class="grid-icon" [routerLink]="getSupplierRoute(supplier.uid)">
+                            <div class="description-container">
+                                <span class="wrap-text">{{ supplier.brief_description }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,113 @@
+h1, h2, li, p, label {
+    color: #48483f;
+}
+
+.detail-container {
+    background-color: white;
+    box-shadow: 0 0 2.1875rem 0 rgb(0 0 0 / 10%);
+    border-radius: 10px;
+
+    width: 30%;
+    float: left;
+
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 20px;
+    margin-bottom: 50px;
+}
+
+.description-container {
+    width: 60%;
+    height: 800px;
+    margin-left: 37.5%;
+
+    padding-left: 1%;
+}
+
+.description-border {
+    box-shadow: 0 0 2.1875rem 0 rgb(0 0 0 / 10%);
+    border-radius: 10px;
+    background-color: white;
+    padding-left: 1%;
+
+    height: 40%;
+    width: 80%;
+
+    overflow: scroll;
+}
+
+img {
+    width: 50%;
+    aspect-ratio: 1 / 1;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.message-box {
+    width: 80%;
+
+    height: 200px;
+
+    line-height: 36px;
+
+    resize: none;
+}
+
+.provider-container {
+    padding-left: 3%;
+    margin-left: 5%;
+    padding-bottom: 50px;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+
+    margin-bottom: 1%;
+}
+
+.form-input {
+    margin-bottom: 1%;
+
+    font-size: 18px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+p, li {
+    font-size: 22px;
+}
+
+.form-button {
+    font-size: 18px;
+    background-color: #959470;
+}
+
+.form-button:hover {
+    background-color: #696848;
+}
+
+.category-container {
+    height: 200px;
+    overflow: scroll;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+
+    background-color: #dbebff;
+}
+
+td, th {
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 5px;
+    word-break: break-word;
+    width: 25%;
+
+    background-color: white;
+}

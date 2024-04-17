@@ -1,0 +1,29 @@
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('../../assets/chevron-down.svg') 98% / 10% no-repeat #EEE;
+    background-size: 10px 10px;
+    background-color: white;
+
+    height: 30px;
+    margin-left: 5px;
+
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: gray;
+
+    padding-right: 30px;
+}
+
+div {
+    margin-left: 10px;
+    margin-top: 10px;
+
+    box-shadow: 0 0 2.1875rem 0 rgb(0 0 0 / 10%);
+    border-radius: 20px;
+
+    width: 250px;
+
+    padding: 10px;
+}

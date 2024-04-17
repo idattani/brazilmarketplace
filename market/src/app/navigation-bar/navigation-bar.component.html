@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+<div class="navigation-bar" id="navbar">
+    <img class="logo" src="../../assets/cyberseguro2.png">
+    <span [routerLink]="getAccountPage()" class="nav-link link-1 text-link">{{ 'nav-bar.profile' | translate }}</span>
+    <span routerLink="/account/chat/id" class="nav-link link-2 text-link" [ngClass]="{'bold': highlightChat(), 'link-2-port-offset': getPortOffset()}">{{ 'nav-bar.chat' | translate }}</span>
+    <span routerLink="/category/tier1" class="nav-link link-3 text-link" [ngClass]="disableLink()">{{ 'nav-bar.cat' | translate }}</span>
+    <i routerLink="/account/user/id" class="nav-link link-1 icon bi bi-person-circle"></i>
+    <i routerLink="/account/chat/id" class="nav-link link-2 icon bi bi-chat-left-text" [ngClass]="{'bold': highlightChat()}"></i>
+    <i routerLink="/category/tier1" class="nav-link link-3 icon bi bi-shop" [ngClass]="disableLink()"></i>
+    <i class="nav-link link-4 bi bi-box-arrow-right" (click)="this.authService.signOut()"></i>
+    <form>
+        <button class="search-button" type="submit" routerLink="/market/search/supplier" [queryParams]="{search: search_term}"><span class="bi bi-search"></span></button>
+        <input class="search-bar" name="search" type="text" [(ngModel)]="search_term" placeholder="{{ 'nav-bar.search-placeholder' | translate }}">
+    </form>
+</div>

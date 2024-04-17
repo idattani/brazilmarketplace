@@ -1,0 +1,11 @@
+.angular/
+.vscode/
+node_modules/
+*firestore-debug.log
+server-data/
+server-log/
+*typesense-server.ini
+*firestore-coverage.html
+*typesense.env
+typesense-data/
+dist/

@@ -1,0 +1,206 @@
+.navigation-bar {
+    background-color: white;
+    box-shadow: 0 0 2.1875rem 0 rgb(0 0 0 / 10%);
+
+    position: sticky;
+
+    width: 100%;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    top: 0;
+
+    z-index: 10;
+}
+
+.logo {
+    right: 0;
+    left: 0;
+
+    margin-left: 5%;
+    margin-right: auto;
+    margin-top: 5px;
+}
+
+.nav-link {
+    position: absolute;
+
+    font-size: 40px;
+    color: black;
+
+    margin-top: 0.3%;
+
+    transition: 0.3s;
+}
+
+.disable-link {
+    pointer-events: none;
+}
+
+.nav-link:hover {
+    color: #18d26e;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.link-1 {
+    margin-left: 3%;
+}
+
+.link-2 {
+    margin-left: 12%;
+    padding-left: 30px;
+}
+
+.link-2-port-offset {
+    margin-left: 8%;
+}
+
+.link-3 {
+    margin-left: 19%;
+    padding-left: 55px;
+}
+
+.link-4 {
+    margin-left: 35%;
+    padding-left: 40px;
+}
+
+.profile {
+    margin-left: 3%;
+}
+
+.chat {
+    margin-left: 7%;
+}
+
+.search-bar {
+    position: absolute;
+    display: block;
+
+    background: transparent;
+
+    top: 0;
+    bottom: 0;
+
+    margin-top: auto;
+    margin-bottom: auto;
+
+    margin-left: 12%;
+
+    border-radius: 32px;
+    border-width: 0;
+
+    height: 20px;
+    width: 80%;
+
+    font-size: 24px;
+}
+
+.search-bar:focus {
+    outline: none;
+}
+
+form {
+    display: flex;
+    border-radius: 32px;
+    border-width: 0.25px;
+    box-shadow: 0 0 2.1875rem 0 rgb(0 0 0 / 10%);
+
+    padding:0 0 0 0;
+
+    background-color: white;
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    margin-top: auto;
+    margin-bottom: auto;
+
+    height: 50px;
+    width: 17.5%;
+
+    margin-left: 80%;
+    margin-right: auto;
+}
+
+.search-button {
+    background: transparent;
+    border: 0;
+
+    margin-left: 3%;
+}
+
+.search-button:hover {
+    cursor: pointer;
+}
+
+.icon {
+    display: none;
+}
+
+@media only screen and (max-width: 1400px) {
+    .nav-link {
+        font-size: 30px;
+        margin-top: 1.5%;
+    }
+
+    form {
+        width: 20%;
+        margin-left: 75%;
+    }
+
+    .search-bar {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .navigation-bar {
+        height: 80px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .text-link {
+        display: none;
+    }
+
+    .nav-link {
+        font-size: 40px;
+        margin-top: 3%;
+    }
+
+    form {
+        width: 40%;
+        margin-left: 55%;
+    }
+
+    .search-bar {
+        font-size: 18px;
+    }
+
+    .icon {
+        display: inline;
+    }
+
+    .link-1 {
+        padding: 0;
+    }
+
+    .link-2 {
+        padding: 0;
+        margin-left: 16.5%;
+    }
+
+    .link-3 {
+        padding: 0;
+        margin-left: 30%;
+    }
+}

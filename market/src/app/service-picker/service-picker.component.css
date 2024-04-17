@@ -1,0 +1,63 @@
+.select-container {
+    margin-left: 10px;
+}
+
+* {
+    font-size: 20px;
+}
+
+div {
+    margin-right: 1%;
+}
+
+.add-button {
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.picker-container {
+    margin-bottom: 1%;
+}
+
+hr {
+    width: 90%;
+    margin-left: 0;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('../../assets/chevron-down.svg') 98% / 10% no-repeat #EEE;
+    background-size: 10px 10px;
+    background-color: white;
+
+    height: 50px;
+
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: gray;
+
+    padding-right: 30px;
+}
+
+@media only screen and (max-width: 1650px) {
+    .float-container {
+        float: none;
+    }
+
+    hr {
+        width: 60%;
+    }
+
+    .select-container {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    select {
+        width: 300px;
+        font-size: 18px;
+    }
+}

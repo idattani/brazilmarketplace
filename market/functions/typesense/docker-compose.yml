@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  typesense:
+    image: typesense/typesense:0.24.0
+    restart: on-failure
+    ports:
+      - "8108:8108"
+    env_file:
+      - typesense.env
+    volumes:
+      - ./typesense-data:/data
+    command: '--enable-cors'

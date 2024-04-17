@@ -1,0 +1,145 @@
+<div class="background">
+    <app-navigation-bar></app-navigation-bar>
+    <app-language></app-language>
+    <div class="account-container">
+        <div class="form-container">
+            <h1>{{ 'user-forms.account' | translate }}</h1>
+            <h2>{{ 'user-forms.user' | translate }}</h2>
+            <form class="float-container staggered-fade-left" style="--animation-order: 0">
+                <div>
+                    <label for="conname">{{ 'user-forms.contact-name' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="conname" name="conname" placeholder="{{ 'user-forms.type' | translate}}">
+                </div>
+                <div>
+                    <button type="submit" class="form-button" (click)="this.authService.updateUser({'contact_name': conname, 'displayName': conname})">{{ 'user-forms.update-contact-name' | translate }}</button>
+                </div>
+            </form>
+            <form class="float-container not-first-field staggered-fade-left" style="--animation-order: 1">
+                <div>
+                    <label for="cname">{{ 'user-forms.cname' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="cname" name="cname" placeholder="{{ 'user-forms.type' | translate}}">
+                </div>
+                <div>
+                    <button type="submit" class="form-button" (click)="this.authService.updateUser({'company_name': cname})">{{ 'user-forms.update-cname' | translate }}</button>
+                </div>
+            </form>
+        </div>
+        <div class="form-container staggered-fade-left" style="--animation-order: 2">
+            <h2>{{ 'user-forms.address' | translate }}</h2>
+            <form>
+                <div class="float-container">
+                    <label for="streetnum">{{ 'user-forms.street-number' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="location.street_number" name="streetnum" placeholder="{{ 'user-forms.street-number-placeholder' | translate }}">
+                </div>
+                <div class="float-container not-first-field">
+                    <label for="buildingname">{{ 'user-forms.building-name' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="location.building_name" name="buildingname" placeholder="{{ 'user-forms.building-placeholder' | translate }}">
+                </div>
+                <div class="float-container not-first-field">
+                    <label for="street">{{ 'user-forms.street' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="location.street_name" name="street" placeholder="{{ 'user-forms.street-placeholder' | translate }}">
+                </div>
+                <div class="float-container clear">
+                    <label for="city">{{ 'user-forms.city' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="location.city_name" name="city" placeholder="{{ 'user-forms.city-placeholder' | translate }}">
+                </div>
+                <div class="float-container not-first-field">
+                    <label for="country">{{ 'user-forms.country' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="location.country_name" name="country" placeholder="{{ 'user-forms.country-placeholder' | translate }}">
+                </div>
+                <div class="float-container not-first-field">
+                    <label for="postcode">{{ 'user-forms.post-code' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="location.post_code" name="postcode" placeholder="{{ 'user-forms.post-code-placeholder' | translate }}">
+                </div>
+                <div>
+                    <button type="submit" class="form-button" (click)="this.authService.updateUser({'address': location})">{{ 'user-forms.update-address' | translate }}</button>
+                </div>
+            </form>
+        </div>
+        <div class="form-container staggered-fade-left" style="--animation-order: 3">
+            <form class="float-container">
+                <div>
+                    <label for="phonenum">{{ 'user-forms.phone-number' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="phone_number" name="phonenum" placeholder="{{ 'user-forms.type' | translate}}">
+                </div>
+                <div>
+                    <button type="submit" class="form-button" (click)="this.authService.updateUser({'phone_number': phone_number})">{{ 'user-forms.update-phone' | translate }}</button>
+                </div>
+            </form>
+            <form class="float-container not-first-field">
+                <div class="email-container">
+                    <label for="email">{{ 'user-forms.email-label' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="email" name="email" placeholder="{{ 'user-forms.email-placeholder' | translate }}">
+                    <input type="password" class="form-input" [(ngModel)]="email_password" name="email" placeholder="{{ 'user-forms.password-placeholder' | translate }}">
+                </div>
+                <div>
+                    <button type="submit" class="form-button" (click)="this.authService.updateEmail(email, email_password)">{{ 'user-forms.update-email' | translate }}</button>
+                </div>
+            </form>
+        </div>
+        <div class="form-container staggered-fade-left" style="--animation-order: 4">
+            <h2>{{ 'user-forms.change-password' | translate }}</h2>
+            <form class="float-container">
+                <div>
+                    <button type="submit" class="form-button" routerLink="/forgottenpassword">{{ 'user-forms.update-password' | translate }}</button>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <div class="form-container staggered-fade-left" style="--animation-order: 5">
+                <h1>{{ 'user-forms.company-details' | translate }}</h1>
+                <div class="float-container">
+                    <form>
+                        <h2>{{ 'user-forms.logo' | translate }}</h2>
+                        <img [src]="image_url">
+                        <div>
+                            <input class="file-input" type="file" name="fileupload" (change)="onFileChanged($event)">
+                        </div>
+                        <button class="form-button" (click)="this.authService.updateLogo(uid, image_file)">{{ 'user-forms.update-logo' | translate }}</button>
+                    </form>
+                </div>
+                <div>
+                    <form class="float-container brief-container">
+                        <h2>{{ 'user-forms.brief-desc' | translate }}</h2>
+                        <textarea type="text" maxlength="150" name="brief-description" class="brief-desc form-input" [(ngModel)]="brief_description" placeholder="{{ 'user-forms.type' | translate}}"></textarea>
+                        <p>{{ trackBriefCharacterCount() }}</p>
+                        <button type="submit" class="form-button" (click)="this.authService.updateUser({'brief_description': brief_description})">{{ 'user-forms.update-brief-desc' | translate }}</button>
+                    </form>
+                </div>
+            </div>
+            <div class="form-container staggered-fade-left" style="--animation-order: 6">
+                <div>
+                    <form class="long-description-container float-container">
+                        <h2>{{ 'user-forms.long-desc' | translate }}</h2>
+                        <textarea type="text" name="long-description" class="long-desc form-input" [(ngModel)]="long_description" placeholder="{{ 'user-forms.type' | translate}}"></textarea>
+                        <button type="submit" class="form-button" (click)="this.authService.updateUser({'long_description': long_description})">{{ 'user-forms.update-long-desc' | translate }}</button>
+                    </form>
+                </div>
+            </div>
+            <div class="form-container staggered-fade-left" style="--animation-order: 7">
+                <div>
+                    <form class="float-container">
+                        <h2>{{ 'user-forms.company-url' | translate }}</h2>
+                        <input type="text" name="url" [(ngModel)]="company_url" class="form-input" placeholder="{{ 'user-forms.type' | translate}}">
+                        <button type="submit" class="form-button" (click)="this.authService.updateUser({'company_url': company_url})">{{ 'user-forms.update-url' | translate }}</button>
+                    </form>
+                </div>
+            </div>
+            <div class="form-container staggered-fade-left" style="--animation-order: 8">
+                <h2>{{ 'user-forms.service-cats' | translate }}</h2>
+                <app-service-picker></app-service-picker>
+            </div>
+            <div class="staggered-fade-left" style="--animation-order: 8">
+                <button type="submit" class="form-button" (click)="this.authService.updateCategories(uid)">{{ 'user-forms.update-cats' | translate }}</button>
+            </div>
+            <div class="form-container staggered-fade-left" style="--animation-order: 9">
+                <div class="float-container">
+                    <h2>{{ 'user-forms.certifications' | translate }}</h2>
+                    <app-certification-uploader></app-certification-uploader>
+                    <button type="submit" class="form-button" (click)="this.authService.updateCertifications(uid)">{{ 'user-forms.update-certs' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

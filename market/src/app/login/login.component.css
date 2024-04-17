@@ -1,0 +1,189 @@
+.login-box {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6%;
+
+    width: 400px;
+    height: 550px;
+
+    right: 0;
+    left: 0;
+
+    padding: 20px 10% 200px 10%;
+
+    border-radius: 10px;
+    box-shadow: 0 0 2.1875rem 0 rgb(0 0 0 / 10%);
+    background-color: white;
+    border-width: 0;
+}
+
+.form-input {
+    display: block;
+    
+    font-size: 20px;
+    height: 50px;
+
+    right: 0;
+    left: 0;
+    
+    position: absolute;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1%;
+
+    width: 80%;
+}
+
+.form-group {
+    margin-top: 20%;
+}
+
+.form-button {
+    display: block;
+
+    border-radius: 20px;
+    border-width: 0px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.75);
+    font-size: 14px;
+
+    height: 44px;
+
+    right: 0;
+    left: 0;
+    
+    position: absolute;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    width: 80%;
+
+    background-color: #394e30;
+    color: white;
+    font-size: 24px;
+
+    transition: 0.2s;
+}
+
+.form-button:hover {
+    background-color: #25331f;
+    cursor: pointer;
+}
+
+.form-label {
+    display: block;
+    position: absolute;
+
+    margin-left: 9.5%;
+    margin-right: auto;
+
+    right: 0;
+    left: 0;
+
+    color: black;
+}
+
+.label-container {
+    display: inline-block;
+    width: 100%;
+    padding: 50px 10px 10px 10px;
+
+    margin-bottom: 10px;
+
+    right: 0;
+    left: 0;
+}
+
+.login-title {
+    display: block;
+    position: absolute;
+
+    margin-left: 9.5%;
+    margin-right: auto;
+
+    right: 0;
+    left: 0;
+}
+
+.title-container {
+    display: inline-block;
+    width: 100%;
+
+    margin-bottom: 50px;
+
+    right: 0;
+    left: 0;
+}
+
+label {
+    font-size: 36px;
+    color: black;
+
+    margin-bottom: 1%;
+}
+
+h1 {
+    font-size: 50px;
+    color: black;
+}
+
+.forgotten-password {
+    display: block;
+    position: absolute;
+
+    right: 0;
+    left: 0;
+
+    margin-left: 65%;
+    margin-right: auto;
+    margin-top: 80px;
+
+    color: black;
+    text-decoration: underline;
+
+}
+
+.forgotten-password:hover {
+    cursor: pointer;
+}
+
+.sign-up {
+    display: block;
+    position: absolute;
+
+    right: 0;
+    left: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 125px;
+    
+    color: black;
+}
+
+.sign-up span {
+    text-decoration: underline;
+}
+
+.sign-up span:hover {
+    cursor: pointer;
+}
+
+.path {
+    position: absolute;
+    display: block;
+
+    margin-left: 3%;
+    margin-top: 1%;
+
+    color: white;
+}
+
+p {
+    font-size: 18px;
+}

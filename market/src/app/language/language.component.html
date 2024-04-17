@@ -1,0 +1,7 @@
+<div>
+    <span class="nav-link">{{ 'languages.select-language' | translate }}</span>
+    <select (change)="changeLanguage($event.target)">
+        <option value="en" [selected]="selectedLang == 'en'">English</option>
+        <option value="pt" [selected]="selectedLang == 'pt'">Português</option>
+    </select>
+</div>

@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+<div *ngFor="let certification of certifications | keyvalue">
+    <div>
+        <span>{{ certification.key }}</span>
+        <i class="bi bi-trash-fill bin" (click)="deleteCertification(certification.key)"></i>
+    </div>
+    <div>
+        <span>{{ getCertFileName(certification.value) }}</span>
+    </div>
+    <hr>
+</div>
+<select [(ngModel)]="certification_to_be_added">
+    <option selected disabled>{{ 'cert-upload.choose-cert' | translate }}</option>
+    <option *ngFor="let certification of default_certifications">{{ certification }}</option>
+    <option>{{ 'cert-upload.other' | translate }}</option>
+</select>
+<input type="text" class="form-input" [(ngModel)]="custom_certification" [hidden]="certification_to_be_added != 'Other'" placeholder="{{ 'cert-upload.other-placeholder' | translate }}">
+<div>
+    <input id="file-upload" #fileInput class="file-input" id="file" type="file" (change)="handleFileInput($event)">>
+</div>
+<div>
+    <span class="add-button" (click)="addCertification()">+ {{ 'cert-upload.add-cert' | translate }}</span>
+</div>

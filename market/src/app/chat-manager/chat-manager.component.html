@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+<div class="background">
+    <app-navigation-bar></app-navigation-bar>
+    <app-language></app-language>
+    <div class="chat-manager">
+        <div class="selector-bar">
+            <div *ngFor="let chat of chats | keyvalue: originalOrder" class="tile" (click)="listenToMessages(chat.value.id, chat.value.user, chat.value.unread)">
+                <h2 class="profile-name" [ngClass]="{'bold': chat.value.unread}">{{ chat.value.name }}</h2>
+                <img src="{{chat.value.image}}">
+            </div>
+        </div>
+        <div class="selector-bar">
+            <div *ngFor="let message of messages" class="tile" (click)="loadCurrentMessage(message)">
+                <h2>{{ message.sender }}</h2>
+                <h3>{{ 'user-forms.subject' | translate }}: {{ message.subject }}</h3>
+                <p class="timestamp">{{ 'chat.time-sent' | translate }}: {{ convertTimestamp(message.timestamp) }}</p>
+                <p class="tile-message">{{ message.message }}</p>
+            </div>
+        </div>
+        <div class="chat-window">
+            <div class="received-message staggered-fade" style="--animation-order: 0;">
+                <h2>{{ current_message.sender }} <span [hidden]="!showEditIcon()"><i class="bi bi-pencil-fill" (click)="toggleEditMode()"></i><i class="bi bi-trash-fill" (click)="deleteMessage()"></i></span></h2>
+                <h3 [hidden]="is_message_hidden">{{ 'user-forms.subject' | translate }}: {{ current_message.subject }}</h3>
+                <p [hidden]="is_message_hidden" class="loaded-message">{{ 'chat.time-sent' | translate }}: {{ convertTimestamp(current_message.timestamp) }}</p>
+                <p class="tile-message loaded-message">{{ current_message.message }}</p>   
+            </div>
+            <h2 class="reply-title staggered-fade" style="--animation-order: 1;">{{ getReplyTitle() }}</h2>
+            <textarea class="reply staggered-fade" placeholder="{{ 'chat.reply-placeholder' | translate }}" style="--animation-order: 1;" [(ngModel)]="reply"></textarea>
+            <button class="form-button reply-button" (click)="processMessage()">{{getButtonText()}}</button>
+        </div>
+    </div>
+</div>

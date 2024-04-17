@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+<span class="add-button" (click)="addService('cat_-1')" [hidden]="isServiceEmpty()">+ {{ 'service-picker.add-service' | translate }}</span>
+<div *ngFor="let service of category_level_body | keyvalue">
+    <hr>
+    <div class="picker-container">
+        <div [ngClass]="{'float-container': !(isHidden(service.key, 'level2'))}" [hidden]="isHidden(service.key, 'level1')">
+            <label for>{{ 'service-picker.level' | translate }} 1</label>
+            <div class="custom-selector">
+                <select [(ngModel)]="category_level_body[stringKey(service.key)]['level1']" (change)="changeHigherLevel(service.key, 'level2')">
+                    <option disabled>--{{ 'categories.Select a category' | translate }}--</option>
+                    <option *ngFor="let cat of returnCategoryObject(service.key, 'level1') | keyvalue" [selected]="isSelected(service.key,cat.key,'level1')"> {{ 'categories.' + cat.key | translate }}</option>
+                </select>
+                <span class="add-button" [hidden]="!(isHidden(service.key, 'level2'))" (click)="addLevel(service.key, 'level2')">+ {{ 'service-picker.add-level' | translate }}</span>
+                <i class="bi bi-trash-fill bin" [hidden]="!(isHidden(service.key, 'level2'))" (click)="deleteService(service.key)"></i>
+            </div>
+        </div>
+        <div [ngClass]="{'float-container': !(isHidden(service.key, 'level3'))}" [hidden]="isHidden(service.key, 'level2')">
+            <label>{{ 'service-picker.level' | translate }} 2</label>
+            <div>
+                <select [(ngModel)]="category_level_body[stringKey(service.key)]['level2']" (change)="changeHigherLevel(service.key, 'level3')">
+                    <option *ngFor="let cat of returnCategoryObject(service.key, 'level2') | keyvalue" [selected]="isSelected(service.key,cat.key,'level2')"> {{ 'categories.' + cat.key | translate }}</option>
+                </select>
+                <span class="add-button" [hidden]="!(isHidden(service.key, 'level3'))" (click)="addLevel(service.key, 'level3')">+ {{ 'service-picker.add-level' | translate }}</span>
+                <i class="bi bi-trash-fill bin" [hidden]="!(isHidden(service.key, 'level3'))" (click)="deleteService(service.key)"></i>
+            </div>
+        </div>
+        <div [hidden]="isHidden(service.key, 'level3')">
+            <label for>{{ 'service-picker.level' | translate }} 3</label>
+            <div class="select-container">
+                <select [(ngModel)]="category_level_body[stringKey(service.key)]['level3']">
+                    <option *ngFor="let cat of returnCategoryObject(service.key, 'level3')" [selected]="isSelected(service.key,cat,'level3')" [disabled]="checkIsOptionAvailable(cat)"> {{ 'categories.' + cat | translate }}</option>
+                </select>
+                <i class="bi bi-trash-fill bin" (click)="deleteService(service.key)"></i>
+            </div>
+        </div>
+        <span class="add-button" (click)="addService(service.key)" [hidden]="isHigherServiceAvailable(service.key)">+ {{ 'service-picker.add-service' | translate }}</span>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+<div class="background">
+    <app-navigation-bar></app-navigation-bar>
+    <app-language></app-language>
+    <div class="provider-container">
+        <h1>{{ company_name }}</h1>
+        <div class="detail-container">
+            <img [src]="image_url">
+            <div>
+                <h2>{{ 'user-forms.contact-name' | translate}}</h2>
+                <p>{{ contact_details }}</p>
+            </div>
+            <div>
+                <h2>{{ 'user-forms.location' | translate}}</h2>
+                <ul>
+                    <li>{{ location.street_name }}, {{ location.street_number }}</li>
+                    <li>{{ location.building_name }}</li>
+                    <li>{{ location.city_name }}</li>
+                    <li>{{ location.country_name }}</li>
+                    <li>{{ location.post_code }}</li>
+                </ul>
+            </div>
+            <h2>{{ 'user-forms.categories' | translate}}</h2>
+            <div class="category-container">
+                <table>
+                    <tr>
+                        <th>{{ 'service-picker.level' | translate}} 1</th>
+                        <th>{{ 'service-picker.level' | translate}} 2</th>
+                        <th>{{ 'service-picker.level' | translate}} 3</th>
+                    </tr>
+                    <tr *ngFor="let category of categories">
+                        <td *ngFor="let sub_category of category | keyvalue">{{ sub_category.value }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h2>{{ 'user-forms.certifications' | translate}}</h2>
+                <ul>
+                    <li *ngFor="let certification of certifications | keyvalue">{{ certification.key }} <a href="{{certification.value}}"><i class="bi bi-eye-fill"></i></a></li>
+                </ul>
+            </div>
+            <div>
+                <h2>{{ 'user-forms.web-url' | translate}}</h2>
+                <a [href]="website"><p>{{ website }}</p></a>
+            </div>
+        </div>
+        <div class="description-container">
+            <h1>{{ 'user-forms.desc' | translate}}</h1>
+            <div class="description-border">
+                <p>{{ description }}</p>
+            </div>
+            <form>
+                <h1>{{ 'user-forms.message-provider' | translate}}</h1>
+                <div>
+                    <label for="subject">{{ 'user-forms.subject' | translate}}</label>
+                </div>
+                <div>
+                    <input type="text" name="subject" class="form-input" placeholder="{{ 'user-forms.subject-placeholder' | translate}}" [(ngModel)]="subject">
+                </div>
+                <div>
+                    <label for="message">{{ 'user-forms.message' | translate}}</label>
+                </div>
+                <div>
+                    <textarea type="text" name="message" class="form-input message-box" placeholder="{{ 'user-forms.message-placeholder' | translate}}" [(ngModel)]="message"></textarea>
+                </div>
+                <button class="form-button" (click)="sendMessage()">{{ 'user-forms.send-message' | translate}}</button>
+            </form>
+        </div>
+    </div>
+</div>

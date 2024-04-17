@@ -1,0 +1,202 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #f7f3e22a;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    margin: 0 0 0 0;
+}
+
+.bold {
+    font-weight: bolder;
+    font-style: italic;
+}
+
+* {
+    font-family:'Poppins', sans-serif;
+}
+
+.background-img {
+    background-image: url("assets/cybermarketbackground.png");
+
+    position: fixed;
+    top: 0;
+    left: 0;
+                  
+    width: 100%;
+    height: 100%;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    overflow: scroll;
+}
+
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: white;
+
+    overflow: scroll;
+}
+
+.form-input {
+    display: block;
+
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    padding: 0.375rem 0.75rem;
+    color: #666;
+    font-size: 25px;
+    height: 31px;
+}
+
+.form-input:focus {
+    outline: none;
+}
+
+.form-container {
+    display: inline-block;
+    width: 100%;
+    padding: 20px 10px 20px 10px;
+
+    right: 0;
+    left: 0;
+}
+
+.form-button {
+    display: block;
+
+    border-radius: 4px;
+    border: transparent;
+    font-size: 30px;
+
+    height: 44px;
+
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    background-color: #18d26e;
+    background-image: linear-gradient(60deg, #f77f00, #18d26e);
+    color: white;
+    font-size: 30px;
+
+    transition: 0.2s;
+}
+
+.form-button:hover {
+    animation-name: form-button-hover;
+    animation-duration: 0.6s;
+    cursor: pointer;
+    background-image: linear-gradient(60deg, #18d26e, #f77f00);
+    animation-fill-mode: both;
+}
+
+@keyframes form-button-hover {
+    0% {
+        background-image: linear-gradient(60deg, #f77f00, #18d26e);
+    }
+
+    50% {
+        background-image: none;
+        opacity: 0.1;
+    }
+
+    100% {
+        background-image: linear-gradient(60deg, #18d26e, #f77f00);
+        opacity: 1;
+    }
+}
+
+.float-container {
+    float: left
+}
+
+.add-button {
+    text-decoration: underline;
+
+    margin-left: 10px;
+}
+
+.add-button:hover {
+    cursor: pointer;
+}
+
+.bin {
+    margin-left: 10px;
+}
+
+.bin:hover {
+    cursor: pointer;
+}
+
+.staggered-fade {
+    animation-duration: 1s;
+    animation-name: animate-fadein;
+    animation-delay: calc(var(--animation-order) * 150ms);
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+
+@keyframes animate-fadein {
+    0% {
+        opacity: 0;
+        transform: translateY(250px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.staggered-fade-right {
+    animation-duration: 1s;
+    animation-name: animate-fadein-right;
+    animation-delay: calc(var(--animation-order) * 150ms);
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+
+@keyframes animate-fadein-right {
+    0% {
+        opacity: 0;
+        transform: translateX(250px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.staggered-fade-left {
+    animation-duration: 1s;
+    animation-name: animate-fadein-left;
+    animation-delay: calc(var(--animation-order) * 150ms);
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+
+@keyframes animate-fadein-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-250px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+select:focus {
+    border-color: orange;
+}

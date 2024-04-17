@@ -1,0 +1,111 @@
+.box {
+    position: absolute;
+    width: 1000px;
+    height: 650px;
+
+    right: 0;
+    left: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 8%;
+
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 2.1875rem 0 rgb(0 0 0 / 10%);
+
+    z-index: -1;
+}
+
+.home-logo {
+    position:relative;
+    height: 90px;
+    width: 300px;
+
+    right: 0;
+    left: 0;
+
+    margin-right: auto;
+    margin-left: 35%;
+    margin-top: 5%;
+}
+
+.home-title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-top: 30px;
+}
+
+.home-description {
+    text-align: center;
+    font-size: 26px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-button {
+    border-radius: 20px;
+    border-width: 0;
+    height: 80px;
+
+    font-size: 24px;
+}
+
+.user-button {
+    position: absolute;
+    width: 200px;
+    display: inline-block;
+    margin-left: 12.5%;
+}
+
+.supplier-button {
+    position: absolute;
+    width: 200px;
+    display: inline-block;
+    margin-left: 62.5%;
+}
+
+.button-box {
+    margin-top: 10%;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .box {
+        width: 400px;
+    }
+    
+    .home-logo {
+        position: absolute;
+
+        right: 0;
+        left: 0;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 200px;
+        height: 60px;
+    }
+
+    .home-title {
+        margin-top: 100px
+    }
+
+    .login-button {
+        right: 0;
+        left: 0;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .supplier-button {
+        margin-top: 100px;
+    }
+}

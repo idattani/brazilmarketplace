@@ -1,0 +1,37 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isVerifiedAuth () {
+      return request.auth != null && request.auth.token.email_verified;
+    }
+
+    match /{allPaths=**} {
+      allow read: if isVerifiedAuth();
+      allow create, update, delete, write: if false;
+    }
+    match /{userId} {
+      allow create, update, delete: if request.auth != null && request.auth.uid == userId;
+    }
+    match /{userId}/images {
+      allow create, update, delete: if request.auth != null && request.auth.uid == userId;
+    }
+    match /{userId}/certifications {
+      allow create, update, delete: if request.auth != null && request.auth.uid == userId;
+    }
+    match /{userId}/images/{fileId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow delete: if request.auth != null && request.auth.uid == userId;
+      allow write, update, create: if request.auth != null && request.auth.uid == userId && 
+      request.resource.contentType.matches('image/.*') && 
+      request.resource.size < 5 * 1024 * 1024;
+    }
+    match /{userId}/certifications/{fileId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow delete: if request.auth != null && request.auth.uid == userId;
+      allow write, update, create: if request.auth != null && request.auth.uid == userId &&
+      (request.resource.contentType.matches('application/pdf') ||
+      request.resource.contentType.matches('image/.*') &&
+      request.resource.size < 10 * 1024 * 1024)
+    }
+  }
+}

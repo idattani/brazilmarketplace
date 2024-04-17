@@ -1,0 +1,156 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isVerifiedAuth () {
+      return request.auth != null && request.auth.token.email_verified;
+    }
+    
+    match /users/{userId} {
+      allow read: if isVerifiedAuth();
+    }
+
+    match /users/{userId} {
+      function isUserAuthedOwner () {
+        return request.auth != null && request.auth.uid == userId
+      }
+
+      function requestHasRequiredFields () {
+        return request.resource.data.keys().hasOnly([
+        'uid', 
+        'email', 
+        'first_name',
+        'last_name',
+        'displayName',
+        'photoURL',
+        'emailVerified',
+        'address',
+        'phone_number',
+        'company_name',
+        'isSupplier',
+        'unread_messages',
+        'image_file']) || 
+        request.resource.data.keys().hasOnly([
+          'uid',
+          'email',
+          'displayName',
+          'photoURL',
+          'emailVerified',
+          'contact_name',
+          'company_name',
+          'phone_number',
+          'address',
+          'isSupplier',
+          'image_file',
+          'brief_description',
+          'long_description',
+          'company_url',
+          'categories',
+          'certifications',
+          'level3_categories',
+          'unread_messages'
+        ])
+      }
+
+      function checkUserFieldTypes () {
+        return request.resource.data.uid is string &&
+        request.resource.data.email is string &&
+        request.resource.data.first_name is string &&
+        request.resource.data.last_name is string &&
+        request.resource.data.displayName is string &&
+        request.resource.data.photoURL is string &&
+        request.resource.data.emailVerified is bool &&
+        request.resource.data.address is map &&
+        request.resource.data.phone_number is string &&
+        request.resource.data.company_name is string &&
+        request.resource.data.isSupplier is bool &&
+        request.resource.data.unread_messages is number &&
+        request.resource.data.image_file is string;
+      }
+
+      function checkSuppplierFieldTypes () {
+        return request.resource.data.uid is string &&
+        request.resource.data.email is string &&
+        request.resource.data.contact_name is string &&
+        request.resource.data.displayName is string &&
+        request.resource.data.photoURL is string &&
+        request.resource.data.emailVerified is bool &&
+        request.resource.data.address is map &&
+        request.resource.data.phone_number is string &&
+        request.resource.data.company_name is string &&
+        request.resource.data.isSupplier is bool &&
+        request.resource.data.unread_messages is number &&
+        request.resource.data.image_file is string &&
+        request.resource.data.brief_description is string &&
+        request.resource.data.long_description is string &&
+        request.resource.data.company_url is string &&
+        request.resource.data.categories is map &&
+        request.resource.data.certifications is map &&
+        request.resource.data.level3_categories is list;
+      }
+
+      function checkRequestFieldTypes () {
+        return checkUserFieldTypes() || checkSuppplierFieldTypes();
+      }
+
+      allow read, update, delete: if isUserAuthedOwner();
+      allow write, create: if isUserAuthedOwner() && requestHasRequiredFields() && checkRequestFieldTypes() && request.resource.data.uid == request.auth.uid;
+    }
+
+    match /users/{userId}/chat_rooms/{chatId} {
+      allow read, update: if (isVerifiedAuth() && request.auth.uid == userId);
+      allow write, create, delete: if false
+    }
+
+    match /chat_rooms/{chatId} {
+      function roomHasCorrectFields () {
+        return request.resource.data.keys().hasOnly([
+          "senderId",
+          "receiverId"
+        ])
+      }
+
+      function checkRoomFieldTypes () {
+        return request.resource.data.senderId is string &&
+        request.resource.data.receiverId is string
+      }
+
+      allow create: if isVerifiedAuth() && roomHasCorrectFields() && checkRoomFieldTypes();
+      allow read: if (request.auth.uid == resource.data.senderId || request.auth.uid == resource.data.receiverId)
+      allow update, write, delete: if false;
+    }
+
+    match /chat_rooms/{chatId}/messages/{messageId} {
+      function messageHasCorrectFields () {
+        return request.resource.data.keys().hasOnly([
+          "message",
+          "sender",
+          "senderId",
+          "receiverId",
+          "subject",
+          "timestamp",
+          "edited",
+          "participants"
+        ])
+      }
+
+      function checkMessageFieldTypes () {
+        return request.resource.data.message is string &&
+          request.resource.data.sender is string &&
+          request.resource.data.senderId is string &&
+          request.resource.data.receiverId is string &&
+          request.resource.data.subject is string &&
+          request.resource.data.timestamp is timestamp &&
+          request.resource.data.edited is bool &&
+          request.resource.data.participants is list
+      }
+      
+      //should only allow creation and read of message in chat room if user is either sender or receive
+     allow create: if (isVerifiedAuth() && request.resource.data.senderId == request.auth.uid && messageHasCorrectFields() && checkMessageFieldTypes());
+     allow read: if (isVerifiedAuth() && resource.data.senderId ==  request.auth.uid || resource.data.receiverId == request.auth.uid ) || (isVerifiedAuth() && request.auth.uid in resource.data.participants)
+     allow update: if isVerifiedAuth() && request.auth.uid == resource.data.senderId;
+     allow delete, write: if false;
+    }
+  }
+}

@@ -1,0 +1,112 @@
+.form-input {
+    height: 50px;
+    width: 100%;
+
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+.float-container {
+    width: 20%;
+}
+
+.not-first-field {
+    margin-left: 3%;
+}
+
+.form-button {
+    clear: both;
+
+    font-size: 18px;
+
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+}
+
+.clear {
+    clear: both;
+}
+
+.account-container {
+    padding-left: 10%;
+}
+
+h1, h2, h3, p, label {
+    color: #48483f;
+}
+
+label {
+    font-size: 20px;
+}
+
+img {
+    width: 40%;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    box-shadow: 5px 5px 9px 0 rgba(0, 0, 0, 0.75);
+
+    margin-bottom: 3%;
+}
+
+.file-input {
+    margin-bottom: 3%;
+}
+
+.brief-desc {
+    resize: none;
+   height: 140px;
+}
+
+.long-description-container {
+    width: 50%;
+    height: 100%;
+}
+
+.brief-container {
+    width: 30%;
+}
+
+.long-desc {
+    height: 450px;
+    resize: none;
+}
+
+p {
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 1650px) {
+
+    .form-input {
+        width: 80%;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .brief-desc {
+        height: 150px;
+    }
+
+    .long-desc {
+        height: 200px;
+    }
+
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .float-container {
+        float: none;
+        width: 80%;
+    }
+
+    .not-first-field {
+        margin-left: 0;
+    }
+
+    .form-input {
+        width: 100%;
+    }
+
+}

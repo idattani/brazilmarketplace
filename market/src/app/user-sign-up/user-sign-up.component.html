@@ -1,0 +1,82 @@
+<div class="background-img">
+    <app-language></app-language>
+    <div style="--animation-order: 0;" class="login-box staggered-fade">
+        <div class="form-container">
+            <h1>{{ 'user-forms.user-signup' | translate }}</h1>
+            <form>
+                <div class="float-container">
+                    <label for="fname">{{ 'user-forms.fname' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="fname" name="fname" placeholder="{{ 'user-forms.fname-placeholder' | translate }}">
+                </div>
+                <div class="float-container not-first-field">
+                    <label for="lname">{{ 'user-forms.lname' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="lname" name="lname" placeholder="{{ 'user-forms.lname-placeholder' | translate }}">
+                </div>
+            </form>
+        </div>
+        <div class="form-container">
+            <form>
+                <div class="float-container">
+                    <label for="cname">{{ 'user-forms.cname' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="cname" name="cname" placeholder="{{ 'user-forms.cname-placeholder' | translate }}">
+                </div>
+            </form>
+        </div>
+        <div class="form-container">
+            <h2>{{ 'user-forms.address' | translate }}</h2>
+            <form>
+                <div class="float-container">
+                    <label for="streetnum">{{ 'user-forms.street-number' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="location.street_number" name="streetnum" placeholder="{{ 'user-forms.street-number-placeholder' | translate }}">
+                </div>
+                <div class="float-container not-first-field">
+                    <label for="buildingname">{{ 'user-forms.building-name' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="location.building_name" name="buildingname" placeholder="{{ 'user-forms.building-placeholder' | translate }}">
+                </div>
+                <div class="float-container not-first-field">
+                    <label for="street">{{ 'user-forms.street' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="location.street_name" name="street" placeholder="{{ 'user-forms.street-placeholder' | translate }}">
+                </div>
+                <div class="float-container">
+                    <label for="city">{{ 'user-forms.city' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="location.city_name" name="city" placeholder="{{ 'user-forms.city-placeholder' | translate }}">
+                </div>
+                <div class="float-container not-first-field">
+                    <label for="country">{{ 'user-forms.country' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="location.country_name" name="country" placeholder="{{ 'user-forms.country-placeholder' | translate }}">
+                </div>
+                <div class="float-container not-first-field">
+                    <label for="postcode">{{ 'user-forms.post-code' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="location.post_code" name="postcode" placeholder="{{ 'user-forms.post-code-placeholder' | translate }}">
+                </div>
+            </form>
+        </div>
+        <div class="form-container">
+            <form class="float-container">
+                <div>
+                    <label for="phonenum">{{ 'user-forms.phone-number' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="phone_number" name="phonenum" placeholder="{{ 'user-forms.phone-placeholder' | translate }}">
+                </div>
+            </form>
+            <form class="float-container not-first-field">
+                <div>
+                    <label for="email">{{ 'user-forms.email-label' | translate }}</label>
+                    <input type="text" class="form-input" [(ngModel)]="email" name="email" placeholder="{{ 'user-forms.email-placeholder' | translate }}">
+                </div>
+            </form>
+        </div>
+        <div class="form-container">
+            <h2>{{ 'user-forms.password-label' | translate }}</h2>
+            <form class="float-container">
+                <div>
+                    <input type="password" [(ngModel)]="password" class="form-input" name="password" placeholder="{{ 'user-forms.password-placeholder' | translate }}">
+                </div>
+                <div>
+                    <label for="retype">{{ 'user-forms.type-again' | translate }}</label>
+                    <input type="password" [(ngModel)]="password_retype" class="form-input" name="retype" placeholder="{{ 'user-forms.password-retype' | translate }}">
+                </div>
+            </form>
+        </div>
+        <button class="form-button" type="submit" (click)="signUp()">{{ 'user-forms.sign-up' | translate }}</button>
+    </div>
+</div>

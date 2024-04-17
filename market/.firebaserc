@@ -1,0 +1,21 @@
+{
+  "targets": {
+    "test-afa89": {
+      "hosting": {
+        "market": [
+          "test-afa89"
+        ]
+      }
+    },
+    "cybermarket-2fd55": {
+      "hosting": {
+        "market": [
+          "cybermarket-2fd55"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "cybermarket-2fd55"
+  }
+}
